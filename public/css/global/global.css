@@ -1,0 +1,29 @@
+@import url(vars.css);
+
+body{
+    height: 100vh;
+    background-color: var(--primary-bg-color);
+}
+header{
+    height: 100px;
+    position: absolute;
+}
+
+header .header-content{
+    background-color: var(--secondary-bg-color);
+}
+header .header-content .logo{
+    text-decoration: none;
+    color: var(--white-color);
+    transition: color .3s;
+}
+header .header-content .logo:hover{
+    color: var(--primary-color);
+}
+header .header-content .logo img{
+    width: 55px;
+}
+header .header-content .logo span{
+    vertical-align: bottom;
+    font-family: 'PressStart2P';
+}

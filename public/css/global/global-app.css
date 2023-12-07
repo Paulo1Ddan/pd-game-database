@@ -1,0 +1,48 @@
+@import url(vars.css);
+
+body{
+    min-height: 100vh;
+    background-color: var(--primary-bg-color);
+}
+header{
+    height: 100px;
+    position: relative;
+    background-color: var(--secondary-bg-color);
+}
+header .header-content-1 .logo{
+    text-decoration: none;
+    color: var(--white-color);
+    transition: color .3s;
+}
+header .header-content-1 .logo:hover{
+    color: var(--primary-color);
+}
+header .header-content-1 .logo img{
+    width: 40px;
+}
+header .header-content-1 .logo span{
+    vertical-align: bottom;
+    font-family: 'PressStart2P';
+}
+header .header-content-1 .navigation-list .navigation-item{
+    width: 110px;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: white;
+}
+header .header-content-1 .navigation-list .active,
+header .header-content-1 .navigation-list .navigation-item:hover{
+    box-shadow: 0 0 0 inset,0 -5px var(--primary-color) inset, 0 0 0 0, 0 0 0 0;
+}
+
+.dropdown{
+    cursor: pointer;
+}
+
+.custom-test{
+    background-color: #212529 !important;
+}
+
+.custom-test a{
+    color: white !important;
+}

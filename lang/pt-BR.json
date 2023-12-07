@@ -1,0 +1,10 @@
+{
+    "O campo user.password deve ser preenchido.": "O campo Senha deve ser preenchido",
+    "The user.password field must be at least 8 characters.": "O campo Senha deve conter ao menos 8 caracteres",
+    "O campo user.password deve conter ao menos um carácter maiúsculo e minúsculo.": "O campo Senha deve conter ao menos um carácter maiúsculo e minúsculo.",
+    "O campo user.password deve conter ao menos um número.": "O campo Senha deve conter ao menos um número.",
+    "O campo user data.password deve ser preenchido.": "O campo Senha deve ser preenchido",
+    "The user data.password field must be at least 8 characters.": "O campo Senha deve conter ao menos 8 caracteres",
+    "O campo user data.password deve conter ao menos um carácter maiúsculo e minúsculo.": "O campo Senha deve conter ao menos um carácter maiúsculo e minúsculo.",
+    "O campo user data.password deve conter ao menos um número.": "O campo Senha deve conter ao menos um número."
+}

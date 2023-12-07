@@ -1,0 +1,23 @@
+.user-validation-box{
+    max-width: 600px;
+    font-family: 'Play';
+    background: var(--tertiary-bg-color);
+    border-radius: 5px;
+}
+.user-validation-box .box-header{
+    height: 50px;
+    border-bottom: 1px solid #414141;;
+}
+.user-validation-box .box-body{
+    border-bottom: 1px solid #414141;;
+}
+.user-validation-box .box-footer button{
+    height: 45px;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+}
+.user-validation-box .box-footer button:active{
+    background: var(--main-bg-color-dark);
+}
+

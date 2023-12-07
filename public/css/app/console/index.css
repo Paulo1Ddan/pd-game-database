@@ -1,0 +1,35 @@
+.console-title{
+    font-family: 'PressStart2P';
+}
+.console-text{
+    font-family: 'Play';
+}
+
+.console-container{
+    width: 100%;
+    background-color: var(--secondary-bg-color);
+    font-family: 'Play' !important;
+}
+.console-container .console-table .color{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align: text-bottom;
+}
+ 
+.console-container .console-create-button{
+    height: 40px;
+    color: white;
+    text-decoration: none;
+    width: 150px;
+}
+
+td, a{
+    color: rgb(188, 188, 188);
+}
+
+.console-img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}

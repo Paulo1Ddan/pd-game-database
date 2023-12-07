@@ -1,0 +1,101 @@
+@font-face {
+    font-family: 'PressStart2P';
+    src: url(../../assets/font/Press_Start_2P/PressStart2P-Regular.ttf);
+}
+@font-face {
+    font-family: 'Play';
+    src: url(../../assets/font/Play/Play-Regular.ttf);
+}
+
+:root{
+    --primary-bg-color: #121212;
+    --secondary-bg-color: #1F1F1F;
+    --tertiary-bg-color: #1D1D1D;
+    --main-bg-color: #6A66F2;
+    --main-bg-color-dark: #5450c3;
+    --delete-bg-color: #bc3131;
+    --delete-bg-color-dark: #7d2323;
+    --primary-color: #6A66F2;
+    --white-color: #ffffff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    margin: 0;
+}
+
+ul, ol{
+    padding: 0;
+    margin: 0;
+}
+
+table, th, td{
+    background: none !important;
+    color: white !important;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.full-height{
+    height: 100%;
+}
+
+.text-primary-color{
+    color: var(--primary-color);
+}
+
+.margin-center{
+    margin: 0 auto;
+}
+
+.flex-full-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-between-center{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-vertical-center{
+    display: flex;
+    align-items: center;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.main-bg-color{
+    background: var(--main-bg-color);
+}
+
+.delete-bg-color{
+    background: var(--delete-bg-color);
+}
+
+.top-radius{
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.default-layout{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}

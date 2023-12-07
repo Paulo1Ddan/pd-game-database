@@ -1,0 +1,60 @@
+.actions .actions-text {
+    font-family: 'PressStart2P';
+}
+
+.actions .action {
+    height: 150px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.actions .action .action-text {
+    height: 150px;
+    border-radius: 10px;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    color: white;
+    text-decoration: none;
+    font-family: 'PressStart2P';
+    background: rgb(31, 31, 31);
+    background: linear-gradient(90deg, rgba(31, 31, 31, 1) 50%, rgba(31, 31, 31, 0.8883928571428571) 80%, rgba(31, 31, 31, 0.700717787114846) 100%);
+    transition: color .3s, transform .3s;
+    transform-origin: left center;
+}
+.actions .action .action-text:hover{
+    transform: scale(1.2);
+    color: var(--primary-color);
+}
+
+.actions .action .action-img {
+    background-size: cover;
+    width: 60%;
+    position: absolute;
+    right: 0;
+}
+
+.console{
+    background: url(../../../assets/bakgrounds/consoles.webp);
+}
+.games{
+    background: url(../../../assets/bakgrounds/games.webp);
+}
+.genres{
+    background: url(../../../assets/bakgrounds/genres.jpg);
+}
+.types{
+    background: url(../../../assets/bakgrounds/types.jpg);
+    background-position: center;
+}
+.achievements{
+    background: url(../../../assets/bakgrounds/achievements.webp);
+}
+.scores{
+    background: url(../../../assets/bakgrounds/scores.jpg);
+}
+.difficulty{
+    background: url(../../../assets/bakgrounds/difficulty.webp);
+    background-position: center;
+}

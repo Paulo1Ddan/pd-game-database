@@ -1,0 +1,31 @@
+.difficulty-title{
+    font-family: 'PressStart2P';
+}
+.difficulty-text{
+    font-family: 'Play';
+}
+
+.difficulty-container{
+    width: 100%;
+    min-height: 200px;
+    background-color: var(--secondary-bg-color);
+    font-family: 'Play' !important;
+}
+.difficulty-container .difficulty-table .color{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align: text-bottom;
+}
+ 
+.difficulty-container .difficulty-create-button{
+    height: 40px;
+    color: white;
+    text-decoration: none;
+    width: 150px;
+
+}
+
+td, a{
+    color: rgb(188, 188, 188);
+}

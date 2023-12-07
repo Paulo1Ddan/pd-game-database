@@ -1,0 +1,30 @@
+.type-title{
+    font-family: 'PressStart2P';
+}
+.type-text{
+    font-family: 'Play';
+}
+
+.type-container{
+    width: 100%;
+    background-color: var(--secondary-bg-color);
+    font-family: 'Play' !important;
+}
+.type-container .type-table .color{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align: text-bottom;
+}
+ 
+.type-container .type-create-button{
+    height: 40px;
+    color: white;
+    text-decoration: none;
+    width: 150px;
+
+}
+
+td, a{
+    color: rgb(188, 188, 188);
+}
