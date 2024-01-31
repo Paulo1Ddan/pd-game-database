@@ -22,15 +22,6 @@
                     @endif
                 </div>
 
-                {{-- Color --}}
-                <div class="console-input-field flex-column fs-4 text-white my-3">
-                    <label for="color" class="input-text">Cor do console</label>
-                    <input id="color" type="color" class='px-2' name="color" value="{{ old('color') }}">
-                    @if ($errors->has('color'))
-                        <label class="console-label-error">{{ $errors->first('color') }}</label>
-                    @endif
-                </div>
-
                 {{-- Img --}}
                 <div class="console-input-field flex-column fs-4 text-white my-3">
                     <label for="img" class="input-text">Imagem</label>

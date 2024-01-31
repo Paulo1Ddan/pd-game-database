@@ -24,7 +24,7 @@
                                 <th>#</th>
                                 <th>Imagem</th>
                                 <th>Console</th>
-                                <th>Cor</th>
+                                <th>Qtd. Jogos</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,7 +33,7 @@
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td><img src="{{ asset('storage/'.$console->img) }}" alt="" class="console-img"></td>
                                     <td><a href="{{ route('console.edit', $console->id) }}" class="fw-bold">{{ $console->name }}</a></td>
-                                    <td>{{ $console->color }} <span class="color" style="background: {{ $console->color }}"></span></td>
+                                    <td>{{ count($console->games) }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

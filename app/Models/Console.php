@@ -9,5 +9,10 @@ class Console extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'name', 'color', 'img'];
+    protected $fillable = ['user_id', 'name', 'img'];
+
+    public function games()
+    {
+        return $this->hasMany('App\Models\Game', 'console_id', 'id');
+    }
 }

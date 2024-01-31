@@ -7,7 +7,7 @@
 
 @section('content')
     <div class="score default-layout">
-        <h3 class="score-title text-white">Criar dificuldade</h3>
+        <h3 class="score-title text-white">Cadastrar pontuação</h3>
 
         <div class="score-container margin-center p-3 text-white rounded mt-5">
             <form action="{{ route('score.store') }}" method="POST" class="score-form">
@@ -32,19 +32,9 @@
                     @endif
                 </div>
 
-                {{-- Color --}}
-                <div class="score-input-field flex-column fs-4 text-white my-3">
-                    <label for="color" class="input-text">Cor da pontuação</label>
-                    <input id="color" type="color" class='px-2' name="color" value="{{ old('color') }}">
-                    @if ($errors->has('color'))
-                        <label class="score-label-error">{{ $errors->first('color') }}</label>
-                    @endif
-                </div>
-
                 @if ($errors->has('user_id'))
                     <label class="score-label-error fs-4">{{ $errors->first('user_id') }}</label>
                 @endif
-
 
                 {{-- Submit --}}
                 <div class="score-button my-3">

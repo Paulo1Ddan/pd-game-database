@@ -26,19 +26,20 @@
                                 <th>#</th>
                                 <th>Subgenero</th>
                                 <th>Genero</th>
-                                <th>Cor</th>
+                                <th>Qtd. Jogos</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($types as $type)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
-                                    <td><a href="{{ route('types.edit', $type->id) }}"
-                                            class="fw-bold">{{ $type->name }}</a></td>
-                                    <td><a href="{{ route('genre.edit', $type->genre->id) }}"
-                                            class="fw-bold">{{ $type->genre->name }}</a></td>
-                                    <td>{{ $type->genre->color }} <span class="color"
-                                            style="background: {{ $type->genre->color }}"></span></td>
+                                    <td>
+                                        <a href="{{ route('types.edit', $type->id) }}" class="fw-bold">{{ $type->name }}</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('genre.edit', $type->genre->id) }}" class="fw-bold">{{ $type->genre->name }}</a>
+                                    </td>
+                                    <td>{{ count($type->games) }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -105,13 +105,9 @@ class GenreController extends Controller
 
         $request->validated();
 
-        $request->merge(['user_id' => auth()->user()->id]);
-
-        $request->validate($this->validateId(), $this->messagesId());
-
         $genre->update($request->all());
 
-        return redirect()->route('genres.index');
+        return redirect()->route('genre.index');
     }
 
     /**

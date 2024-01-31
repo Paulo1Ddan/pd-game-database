@@ -9,5 +9,10 @@ class Score extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'system', 'description', 'color'];
+    protected $fillable = ['user_id', 'system', 'description'];
+
+    public function games()
+    {
+        return $this->hasMany('App\Models\Game', 'score_id', 'id');
+    }
 }

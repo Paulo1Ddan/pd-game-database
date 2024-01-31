@@ -24,15 +24,6 @@
                     @endif
                 </div>
 
-                {{-- Color --}}
-                <div class="console-input-field flex-column fs-4 text-white my-3">
-                    <label for="color" class="input-text">Cor do console</label>
-                    <input id="color" type="color" class='px-2' name="color" value="{{ $console->color }}">
-                    @if ($errors->has('color'))
-                        <label class="console-label-error">{{ $errors->first('color') }}</label>
-                    @endif
-                </div>
-
                 @if ($errors->has('user_id'))
                     <label class="console-label-error fs-4">{{ $errors->first('user_id') }}</label>
                 @endif

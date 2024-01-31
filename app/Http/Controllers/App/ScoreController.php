@@ -103,10 +103,6 @@ class ScoreController extends Controller
 
         $request->validated();
 
-        $request->merge(['user_id' => auth()->user()->id]);
-
-        $request->validate($this->validateId(), $this->messagesId());
-
         $score->update($request->all());
 
         return redirect()->route('score.index');   

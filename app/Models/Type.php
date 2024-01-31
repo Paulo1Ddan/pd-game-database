@@ -15,8 +15,8 @@ class Type extends Model
         return $this->belongsTo('App\Models\Genre', 'genre_id', 'id');
     }
 
-    public function game()
+    public function games()
     {
-        
+        return $this->hasMany('App\Models\Game', 'type_id', 'id');
     }
 }

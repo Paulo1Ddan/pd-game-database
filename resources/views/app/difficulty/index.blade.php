@@ -27,18 +27,16 @@
                                 <th>#</th>
                                 <th>Sistema</th>
                                 <th>Descrição</th>
-                                <th>Cor</th>
+                                <th>Qtd. Jogos</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($difficulties as $difficulty)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
-                                    <td><a href="{{ route('difficulty.edit', $difficulty->id) }}"
-                                            class="fw-bold">{{ $difficulty->system }}</a></td>
+                                    <td><a href="{{ route('difficulty.edit', $difficulty->id) }}" class="fw-bold">{{ $difficulty->system }}</a></td>
                                     <td>{{ $difficulty->description }}</td>
-                                    <td>{{ $difficulty->color }} <span class="color"
-                                            style="background: {{ $difficulty->color }}"></span></td>
+                                    <td>{{ count($difficulty->games) }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

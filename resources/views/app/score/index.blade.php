@@ -27,7 +27,7 @@
                                 <th>#</th>
                                 <th>Sistema</th>
                                 <th>Descrição</th>
-                                <th>Cor</th>
+                                <th>Qtd. Jogos</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,8 +37,7 @@
                                     <td><a href="{{ route('score.edit', $score->id) }}"
                                             class="fw-bold">{{ $score->system }}</a></td>
                                     <td>{{ $score->description }}</td>
-                                    <td>{{ $score->color }} <span class="color"
-                                            style="background: {{ $score->color }}"></span></td>
+                                    <td>{{ count($score->games) }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

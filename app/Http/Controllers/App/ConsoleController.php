@@ -111,10 +111,6 @@ class ConsoleController extends Controller
 
         $request->validated();
 
-        $request->merge(['user_id' => auth()->user()->id]);
-
-        $request->validate($this->validateId(), $this->messagesId());
-
         $console->update($request->all());
 
         return redirect()->route('console.index');
@@ -133,10 +129,6 @@ class ConsoleController extends Controller
         }
 
         $request->validated();
-
-        $request->merge(['user_id' => auth()->user()->id]);
-
-        $request->validate($this->validateId(), $this->messagesId());
 
         if($request->file('img')){
             Storage::disk('public')->delete($console->img);

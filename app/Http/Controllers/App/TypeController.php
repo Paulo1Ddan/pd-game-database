@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
 use App\Http\Traits\App\TypesTrait;
+use Illuminate\Support\Facades\Gate;
 
 class TypeController extends Controller
 {
@@ -44,38 +45,70 @@ class TypeController extends Controller
 
         $this->type->create($request->all());
 
-        return redirect()->back();
+        return redirect()->route('types.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Type $type)
+    public function show($id)
     {
-        //
+        try {
+            $type = $this->type->findOrFail($id);
+
+            return redirect()->route('type.edit', $id);
+        } catch (\Exception $e) {
+            abort(404);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Type $type)
+    public function edit($id)
     {
-        //
+        try {
+            $type = $this->type->findOrFail($id);
+        } catch (\Exception $e) {
+            abort(404);
+        }
+
+        if (!Gate::allows('type-owner', $type)) {
+            return redirect()->route('types.index');
+        }
+
+        $genres = Genre::where('user_id', auth()->user()->id)->get();
+
+        return view('app.types.edit', ['genres' => $genres, 'type' => $type]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateTypeRequest $request, Type $type)
+    public function update(UpdateTypeRequest $request, $id)
     {
-        //
+        try {
+            $type = $this->type->findOrFail($id);
+        } catch (\Exception $e) {
+            abort(404);
+        }
+
+        if (!Gate::allows('type-owner', $type)) {
+            return redirect()->route('types.index');
+        }
+
+        $request->validated();
+
+        $type->update($request->all());
+
+        return redirect()->route('types.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Type $type)
+    public function destroy($id)
     {
-        //
+        try {
+            $type = $this->type->findOrFail($id);
+        } catch (\Exception $e) {
+            abort(404);
+        }
+
+        if (!Gate::allows('type-owner', $type)) {
+            return redirect()->route('types.index');
+        }
+
+        $type->delete();
+
+        return redirect()->route('types.index');
     }
 }

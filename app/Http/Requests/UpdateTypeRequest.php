@@ -2,27 +2,26 @@
 
 namespace App\Http\Requests;
 
+use App\Http\Traits\App\TypesTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateTypeRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
+ 
+    use TypesTrait;
+
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        return $this->validationRules();        
+    }
+
+    public function messages(): array
+    {
+        return $this->validationMessages();
     }
 }

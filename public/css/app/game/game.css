@@ -1,0 +1,81 @@
+select, input{
+    color-scheme: dark;
+}
+
+.game-title{
+    font-family: 'PressStart2P';
+}
+
+.game-container{
+    max-width: 600px;
+    width: 100%;
+    min-height: 300px;
+    border: 2px solid #414141;
+    margin-bottom: 200px !important;
+}
+
+.game-form .game-input-field {
+    font-family: 'Play';
+}
+
+.game-label-error{
+    font-size: 0.8em;
+    color: rgb(243, 45, 45);
+}
+
+.game-form .game-input-field input,
+.game-form .game-select-field select,
+.game-form .game-textarea-field textarea {
+    height: 40px;
+    width: 100%;
+    outline: none;
+    background: none;
+    border: 2px solid #414141;
+    border-radius: 10px;
+    color: white;
+    transition: border-color .3s, color .3s;
+    -webkit-transition: border-color .3s, color .3s;
+    -moz-transition: border-color .3s, color .3s;
+    -webkit-appearance: none;
+}
+
+.game-form .game-textarea-field textarea{
+    height: 200px;
+}
+
+.game-form .game-input-field input:focus,
+.game-form .game-textarea-field textarea:focus {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.game-form .game-select-field select option{
+    background: #121212;
+}
+
+.game-form .game-select-field select:focus {
+    border: 2px solid var(--primary-color);
+}
+
+.game-form .game-button{
+    width: 100%;
+}
+.game-form .game-button button{
+    width: 100%;
+    height: 45px;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+}
+.game-form .game-button button:active{
+    background: var(--main-bg-color-dark);
+}
+.game-form .delete button:active{
+    background: var(--delete-bg-color-dark);
+}
+
+.game-form .game-img img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}

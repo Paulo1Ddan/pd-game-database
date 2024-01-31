@@ -103,11 +103,7 @@ class DifficultyController extends Controller
         }
 
         $request->validated();
-
-        $request->merge(['user_id' => auth()->user()->id]);
-
-        $request->validate($this->validateId(), $this->messagesId());
-
+        
         $difficulty->update($request->all());
 
         return redirect()->route('difficulty.index');

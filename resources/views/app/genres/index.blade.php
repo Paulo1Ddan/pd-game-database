@@ -8,7 +8,7 @@
 @section('content')
     <div class="genre default-layout">
         <h3 class="genre-title text-white">Generos</h3>
-        <p class="genre-text text-white fs-5">Gerencie os generos dos jogos que você quer catalogar. Caso tenha dificuldades em definir o genero</p>
+        <p class="genre-text text-white fs-5">Gerencie os generos dos jogos que você quer catalogar. Caso tenha dificuldades em definir o genero, poderá descobri-lo através das principais lojas online de jogos</p>
 
         <div class="genre-container p-3 text-white rounded mt-3">
 
@@ -23,7 +23,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nome</th>
-                                <th>Cor</th>
+                                <th>Qtd. Jogos</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,7 +31,7 @@
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td><a href="{{ route('genre.edit', $genre->id) }}" class="fw-bold">{{ $genre->name }}</a></td>
-                                    <td>{{ $genre->color }} <span class="color" style="background: {{ $genre->color }}"></span></td>
+                                    <td>{{ count($genre->games) }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

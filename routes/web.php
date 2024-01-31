@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/console', '\App\Http\Controllers\App\ConsoleController');
     Route::match(['put', 'patch'], '/console/{console}/img', [ConsoleController::class, 'updateImg'])->name('console.update.img');
     Route::resource('/difficulty', '\App\Http\Controllers\App\DifficultyController');
+    Route::resource('/game', '\App\Http\Controllers\App\GameController');
     Route::resource('/genre', '\App\Http\Controllers\App\GenreController');
     Route::resource('/score', '\App\Http\Controllers\App\ScoreController');
     Route::resource('/types', '\App\Http\Controllers\App\TypeController');

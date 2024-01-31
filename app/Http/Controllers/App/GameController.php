@@ -6,23 +6,46 @@ use App\Models\Game;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreGameRequest;
 use App\Http\Requests\UpdateGameRequest;
+use App\Models\Console;
+use App\Models\Difficulty;
+use App\Models\Genre;
+use App\Models\Score;
+use App\Models\Type;
 
 class GameController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    protected $game;
+
+    public function __construct(Game $game)
     {
-        //
+        $this->game = $game;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function index()
+    {
+        $games = $this->game->where('user_id', auth()->user()->id)->get();
+
+        return view('app.games.index', ['games' => $games]);
+    }
+
     public function create()
     {
-        //
+        $genres = Genre::where('user_id', auth()->user()->id)->get();
+
+        $consoles = Console::where('user_id', auth()->user()->id)->get();
+        $genres = Genre::where('user_id', auth()->user()->id)->get();
+        $types = Type::where('user_id', auth()->user()->id)->get();
+        $scores = Score::where('user_id', auth()->user()->id)->get();
+        $difficulties = Difficulty::where('user_id', auth()->user()->id)->get();
+
+        return view('app.games.create', [
+            'consoles' => $consoles,
+            'genres' => $genres,
+            'types' => $types,
+            'scores' => $scores,
+            'difficulties' => $difficulties
+        ]);
     }
 
     /**

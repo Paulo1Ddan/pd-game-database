@@ -12,7 +12,7 @@
 
     <div class="row g-4 mt-2">
         <div class="col-lg-6 col-sm-12">
-            <a href="#" class="action d-flex full-height full-width">
+            <a href="{{ route('game.index') }}" class="action d-flex full-height full-width">
                 <div class="action-text full-heigth flex-vertical-center p-4">
                     <h4>Jogos</h4>
                 </div>

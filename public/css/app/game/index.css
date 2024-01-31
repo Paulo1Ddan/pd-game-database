@@ -1,0 +1,35 @@
+.game-title{
+    font-family: 'PressStart2P';
+}
+.game-text{
+    font-family: 'Play';
+}
+
+.game-container{
+    width: 100%;
+    background-color: var(--secondary-bg-color);
+    font-family: 'Play' !important;
+}
+.game-container .game-table .color{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align: text-bottom;
+}
+ 
+.game-container .game-create-button{
+    height: 40px;
+    color: white;
+    text-decoration: none;
+    width: 150px;
+}
+
+td, a{
+    color: rgb(188, 188, 188);
+}
+
+.game-img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
