@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreGameRequest;
 use App\Http\Requests\UpdateGameRequest;
+use App\Http\Traits\App\GameTrait;
 use App\Models\Console;
 use App\Models\Difficulty;
 use App\Models\Genre;
@@ -14,6 +15,8 @@ use App\Models\Type;
 
 class GameController extends Controller
 {
+
+    use GameTrait;
 
     protected $game;
 
@@ -48,12 +51,24 @@ class GameController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreGameRequest $request)
     {
-        //
+        
+        $request->validated();
+
+        $request->merge(['user_id' => auth()->user()->id]);
+
+        $request->validate($this->validateId(), $this->messagesId());
+
+        $cover = $request->cover;
+
+        $cover_name = $cover->store('img/game', 'public');
+
+        $data = $this->getGameData($request->all(), $cover_name);
+
+        $this->game->create($data);
+
+        return redirect()->route('game.index');
     }
 
     /**

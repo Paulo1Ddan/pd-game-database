@@ -1,5 +1,5 @@
 @extends('layouts.app.layout')
-@section('title', 'Pontuação - Criar')
+@section('title', 'Criar pontuação')
 
 @push('style-css')
     <link rel="stylesheet" href="{{ asset('css/app/score/score.css') }}">
@@ -7,39 +7,43 @@
 
 @section('content')
     <div class="score default-layout">
-        <h3 class="score-title text-white">Cadastrar pontuação</h3>
+        <h3 class="score-title text-white">Criar pontuação</h3>
 
         <div class="score-container margin-center p-3 text-white rounded mt-5">
-            <form action="{{ route('score.store') }}" method="POST" class="score-form">
+            <form action="{{ route('score.store') }}" method="POST" class="gd-form">
                 @csrf
 
                 {{-- System --}}
-                <div class="score-input-field flex-column fs-4 text-white my-3">
-                    <label for="system" class="input-text">Sistema de pontuação</label>
-                    <input id="system" type="text" class='px-2' placeholder="Ex.: AAA, B, 1, 2, 3" name="system" value="{{ old('system') }}" autofocus>
-                    @if ($errors->has('system'))
-                        <label class="score-label-error">{{ $errors->first('system') }}</label>
-                    @endif
-                </div>
+                @include('app.partials.forms.input', [
+                    'label' => 'Sistema de pontuação',
+                    'name' => 'system',
+                    'placeholder' => 'Ex.: Alfabético (A, B, C) ou Númerico (1, 2, 3)',
+                    'value' => old('system'),
+                    'input_type' => 'text',
+                    'autofocus' => true,
+                    'errors' => $errors->has('system') ? $errors->first('system') : null,
+                ])
 
                 {{-- Description --}}
-                <div class="score-input-field flex-column fs-4 text-white my-3">
-                    <label for="description" class="input-text">Descrição</label>
-                    <input id="description" type="text" placeholder="Ex.: Bom, médio, ruim" class='px-2'
-                        name="description" value="{{ old('description') }}">
-                    @if ($errors->has('description'))
-                        <label class="score-label-error">{{ $errors->first('description') }}</label>
-                    @endif
+                @include('app.partials.forms.input', [
+                    'label' => 'Descrição',
+                    'name' => 'description',
+                    'placeholder' => 'Ex.: Muito bom, Médiano, Ruim etc.',
+                    'value' => old('description'),
+                    'input_type' => 'text',
+                    'autofocus' => true,
+                    'errors' => $errors->has('description') ? $errors->first('description') : null,
+                ])
+
+                {{-- Submit --}}
+                <div class="gd-button my-3">
+                    <button class="main-bg-color text-white fw-medium fs-5 rounded" type="submit">Enviar</button>
                 </div>
 
                 @if ($errors->has('user_id'))
-                    <label class="score-label-error fs-4">{{ $errors->first('user_id') }}</label>
+                    <label class="gd-label-error fs-4">{{ $errors->first('user_id') }}</label>
                 @endif
 
-                {{-- Submit --}}
-                <div class="score-button my-3">
-                    <button class="main-bg-color text-white fw-medium fs-5 rounded" type="submit">Enviar</button>
-                </div>
             </form>
         </div>
     </div>

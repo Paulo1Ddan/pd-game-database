@@ -3,15 +3,19 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Traits\App\GameTrait;
 
 class StoreGameRequest extends FormRequest
 {
+
+    use GameTrait;
+
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +25,11 @@ class StoreGameRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        return $this->validationRules();
+    }
+
+    public function messages()
+    {
+        return $this->validationMessages();
     }
 }

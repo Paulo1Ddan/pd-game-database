@@ -36,6 +36,14 @@
                         <label class="auth-label-error">{{ $errors->first('password') }}</label>
                     @endif
                 </div>
+
+                <div class="auth-show-password flex-between-center flex-wrap">
+                    {{-- Show Password --}}
+                    <div class="auth-check-field fs-4 text-white my-3">
+                        <input id='show_password' type="checkbox" class="px-2" name="show_password">
+                        <label for="show_password" class="check-text">Mostrar Senha</label>
+                    </div>
+                </div>
                 
                 <div class="auth-remember-forgot flex-between-center flex-wrap">
                     {{-- Remember-me --}}
@@ -64,3 +72,7 @@
     </div>
 
 @endsection
+
+@push('script-js')
+    <script type="module" src="{{ asset('js/global/show-password.js') }}"></script>
+@endpush

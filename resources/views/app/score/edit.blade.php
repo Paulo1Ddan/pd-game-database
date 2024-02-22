@@ -1,5 +1,5 @@
 @extends('layouts.app.layout')
-@section('title', 'Pontuação - Editar')
+@section('title', 'Editar pontuação')
 
 @push('style-css')
     <link rel="stylesheet" href="{{ asset('css/app/score/score.css') }}">
@@ -10,40 +10,42 @@
         <h3 class="score-title text-white">Editar pontuação</h3>
 
         <div class="score-container margin-center p-3 text-white rounded mt-5">
-            <form action="{{ route('score.update', $score->id ) }}" method="POST" class="score-form">
+            <form action="{{ route('score.update', $score->id) }}" method="POST" class="gd-form">
                 @csrf
                 @method('PUT')
 
                 {{-- System --}}
-                <div class="score-input-field flex-column fs-4 text-white my-3">
-                    <label for="system" class="input-text">Sistema de pontuação</label>
-                    <input id="system" type="text" class='px-2' placeholder="Ex.: AAA, B, 1, 2, 3" name="system"
-                        value="{{ $score->system }}" autofocus>
-                    @if ($errors->has('system'))
-                        <label class="score-label-error">{{ $errors->first('system') }}</label>
-                    @endif
-                </div>
+                @include('app.partials.forms.input', [
+                    'label' => 'Sistema de pontuação',
+                    'name' => 'system',
+                    'placeholder' => 'Ex.: Alfabético (A, B, C) ou Númerico (1, 2, 3)',
+                    'value' => 'value' => old('system') == '' ? $score->system : old('description'),
+                    'input_type' => 'text',
+                    'autofocus' => true,
+                    'errors' => $errors->has('system') ? $errors->first('system') : null,
+                ])
 
                 {{-- Description --}}
-                <div class="score-input-field flex-column fs-4 text-white my-3">
-                    <label for="description" class="input-text">Descrição</label>
-                    <input id="description" type="text" placeholder="Ex.: Muito dificil, Médio, Facil" class='px-2'
-                        name="description" value="{{ $score->description }}">
-                    @if ($errors->has('description'))
-                        <label class="score-label-error">{{ $errors->first('description') }}</label>
-                    @endif
-                </div>
-
-                @if ($errors->has('user_id'))
-                    <label class="score-label-error fs-4">{{ $errors->first('user_id') }}</label>
-                @endif
+                @include('app.partials.forms.input', [
+                    'label' => 'Descrição',
+                    'name' => 'description',
+                    'placeholder' => 'Ex.: Muito bom, Médiano, Ruim etc.',
+                    'value' => 'value' => old('description') == '' ? $score->description : old('description'),
+                    'input_type' => 'text',
+                    'autofocus' => true,
+                    'errors' => $errors->has('description') ? $errors->first('description') : null,
+                ])
 
                 {{-- Submit --}}
-                <div class="score-button my-3">
+                <div class="gd-button my-3">
                     <button class="main-bg-color text-white fw-medium fs-5 rounded" type="submit">Enviar</button>
                 </div>
 
-            </form> 
+                @if ($errors->has('user_id'))
+                    <label class="gd-label-error fs-4">{{ $errors->first('user_id') }}</label>
+                @endif
+
+            </form>
             <form action="{{ route('score.destroy', $score->id) }}" class="score-form" method="POST">
                 @csrf
                 @method('DELETE')

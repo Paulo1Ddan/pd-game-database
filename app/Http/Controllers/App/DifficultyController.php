@@ -6,14 +6,11 @@ use App\Models\Difficulty;
 use App\Http\Requests\StoreDifficultyRequest;
 use App\Http\Requests\UpdateDifficultyRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Traits\App\DifficultyTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 class DifficultyController extends Controller
 {
-
-    use DifficultyTrait;
 
     protected $difficulty;
 
@@ -52,7 +49,7 @@ class DifficultyController extends Controller
         $request->validate($this->validateId(), $this->messagesId());
 
         $this->difficulty->create($request->all());
-
+        
         return redirect()->route('difficulty.index');
     }
 

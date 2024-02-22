@@ -9,7 +9,6 @@ trait DifficultyTrait{
         return[
             'system' => ['required'],
             'description' => ['required'],
-            'color' => ['required']
         ];
     }
 
@@ -21,26 +20,6 @@ trait DifficultyTrait{
             ],
             'description' => [
                 'required' => 'O campo descrição deve ser preenchido'
-            ],
-            'color' => [
-                'required' => 'O campo cor da dificuldade deve ser preenchido'
-            ]
-        ];
-    }
-
-    public function validateId():array
-    {
-        return[
-            'user_id' => ['exists:users,id', 'required']
-        ];
-    }
-
-    public function messagesId():array
-    {
-        return[
-            'user_id' => [
-                'exists' => 'Usuario inválido. Recarregue a pagina',
-                'required' => 'Usuário inválido. Recarregue a pagina'
             ]
         ];
     }
