@@ -35,13 +35,15 @@ class GameController extends Controller
 
     public function create()
     {
-        $genres = Genre::where('user_id', auth()->user()->id)->get();
 
-        $consoles = Console::where('user_id', auth()->user()->id)->get();
-        $genres = Genre::where('user_id', auth()->user()->id)->get();
-        $types = Type::where('user_id', auth()->user()->id)->get();
-        $scores = Score::where('user_id', auth()->user()->id)->get();
-        $difficulties = Difficulty::where('user_id', auth()->user()->id)->get();
+        $auth_user = auth()->user()->id;
+
+        $genres = Genre::where('user_id', $auth_user)->get();
+        $consoles = Console::where('user_id', $auth_user)->get();
+        $genres = Genre::where('user_id', $auth_user)->get();
+        $types = Type::where('user_id', $auth_user)->get();
+        $scores = Score::where('user_id', $auth_user)->get();
+        $difficulties = Difficulty::where('user_id', $auth_user)->get();
 
         return view('app.games.create', [
             'consoles' => $consoles,
@@ -54,7 +56,7 @@ class GameController extends Controller
 
     public function store(StoreGameRequest $request)
     {
-        
+
         $request->validated();
 
         $request->merge(['user_id' => auth()->user()->id]);
@@ -77,14 +79,9 @@ class GameController extends Controller
      */
     public function show($id): View
     {
-        try{
-            $game = Game::findOrFail($id);
+        $game = Game::findOrFail($id);
 
-            return view("app.games.show", ["game" => $game]);
-        }catch(\Throwable $th)
-        {
-            abort(404);
-        }
+        return view("app.games.show", ["game" => $game]);
     }
 
     /**
