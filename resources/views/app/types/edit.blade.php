@@ -10,53 +10,46 @@
         <h3 class="type-title text-white">Criar dificuldade</h3>
 
         <div class="type-container margin-center p-3 text-white rounded mt-5">
-            <form action="{{ route('types.update', $type->id) }}" method="POST" class="type-form">
+            <form action="{{ route('types.update', $type->id) }}" method="POST" class="gd-form">
                 @csrf
                 @method('put')
 
                 {{-- Genre --}}
-                <div class="type-select-field flex-column fs-4 text-white my-3">
-                    <label for="genre" class="select-text">Genero</label>
-                    <select name="genre_id" id="genre" class="px-2">
-                        <option class="option" style="background: #121212" value="">Selecione o genero do jogo
-                        </option>
-                        @foreach ($genres as $genre)
-                            <option class="option" value="{{ $genre->id }}"
-                                {{ ($type->genre_id ?? old('genre_id')) == $genre->id ? 'selected' : '' }}>
-                                {{ $genre->name }}</option>
-                        @endforeach
-                    </select>
-                    @if ($errors->has('genre_id'))
-                        <label class="type-label-error">{{ $errors->first('genre_id') }}</label>
-                    @endif
-                </div>
+                @include('app.partials.forms.select', [
+                    'label' => 'Gênero',
+                    'name' => 'genre_id',
+                    'options' => $genres,
+                    'selected' => old("genre_id") ? old("genre_id") : $type->genre_id,
+                    'name_type' => 'name',
+                    'errors' => $errors->has('genre_id') ? $errors->first('genre_id') : null, 
+                ])
 
                 {{-- Type --}}
-                <div class="type-input-field flex-column fs-4 text-white my-3">
-                    <label for="name" class="input-text">Subgenero</label>
-                    <input id="name" type="text" class='px-2'
-                        placeholder="Ex.: Soulslike, Hack n' Slash, Metroidvania" name="name"
-                        value="{{ old('name') == '' ? $type->name : old('name') }}" autofocus>
-                    @if ($errors->has('name'))
-                        <label class="type-label-error">{{ $errors->first('name') }}</label>
-                    @endif
-                </div>
+                @include('app.partials.forms.input', [
+                    "label" => "Subgênero",
+                    "name" => "name",
+                    "placeholder" => "Ex.: Soulslike, Hack n' Slash, Metroidvania",
+                    "value" => old("name") ? old("name") : $type->name,
+                    "input_type" => "text",
+                    "autofocus" => false,
+                    "errors" => $errors->has('name') ? $errors->first('name') : null
+                ])
 
                 @if ($errors->has('user_id'))
                     <label class="type-label-error fs-4">{{ $errors->first('user_id') }}</label>
                 @endif
 
                 {{-- Submit --}}
-                <div class="type-button my-3">
+                <div class="gd-button my-3">
                     <button class="main-bg-color text-white fw-medium fs-5 rounded" type="submit">Enviar</button>
                 </div>
             </form>
 
-            <form action="{{ route('types.destroy', $type->id) }}" class="type-form" method="POST">
+            <form action="{{ route('types.destroy', $type->id) }}" class="gd-form" method="POST">
                 @csrf
                 @method('DELETE')
                 {{-- Delete --}}
-                <div class="type-button delete my-3">
+                <div class="gd-button delete my-3">
                     <button class="delete-bg-color text-white fw-medium fs-5 rounded" type="submit">Deletar</button>
                 </div>
             </form>

@@ -19,7 +19,7 @@
                     'label' => 'Sistema de pontuação',
                     'name' => 'system',
                     'placeholder' => 'Ex.: Alfabético (A, B, C) ou Númerico (1, 2, 3)',
-                    'value' => 'value' => old('system') == '' ? $score->system : old('description'),
+                    'value' => old('system') == '' ? $score->system : old('description'),
                     'input_type' => 'text',
                     'autofocus' => true,
                     'errors' => $errors->has('system') ? $errors->first('system') : null,
@@ -30,7 +30,7 @@
                     'label' => 'Descrição',
                     'name' => 'description',
                     'placeholder' => 'Ex.: Muito bom, Médiano, Ruim etc.',
-                    'value' => 'value' => old('description') == '' ? $score->description : old('description'),
+                    'value' => old('description') == '' ? $score->description : old('description'),
                     'input_type' => 'text',
                     'autofocus' => true,
                     'errors' => $errors->has('description') ? $errors->first('description') : null,
@@ -46,11 +46,11 @@
                 @endif
 
             </form>
-            <form action="{{ route('score.destroy', $score->id) }}" class="score-form" method="POST">
+            <form action="{{ route('score.destroy', $score->id) }}" class="gd-form" method="POST">
                 @csrf
                 @method('DELETE')
                 {{-- Delete --}}
-                <div class="score-button delete my-3">
+                <div class="gd-button delete my-3">
                     <button class="delete-bg-color text-white fw-medium fs-5 rounded" type="submit">Deletar</button>
                 </div>
             </form>

@@ -36,7 +36,7 @@
                             @foreach ($games as $game)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
-                                    <td><a href="{{ route('game.edit', $game->id) }}"
+                                    <td><a href="{{ route('game.show', $game->id) }}"
                                             class="fw-bold">{{ $game->name }}</a></td>
                                     <td><a href="{{ route('console.edit', $game->console->id) }}"
                                             class="fw-bold">{{ $game->console->name }}</a></td>

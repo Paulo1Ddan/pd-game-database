@@ -12,6 +12,7 @@ use App\Models\Difficulty;
 use App\Models\Genre;
 use App\Models\Score;
 use App\Models\Type;
+use Illuminate\Contracts\View\View;
 
 class GameController extends Controller
 {
@@ -74,9 +75,16 @@ class GameController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Game $game)
+    public function show($id): View
     {
-        //
+        try{
+            $game = Game::findOrFail($id);
+
+            return view("app.games.show", ["game" => $game]);
+        }catch(\Throwable $th)
+        {
+            abort(404);
+        }
     }
 
     /**

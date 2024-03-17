@@ -8,8 +8,7 @@ trait ScoreTrait{
     {
         return[
             'system' => ['required'],
-            'description' => ['required'],
-            'color' => ['required']
+            'description' => ['required']
         ];
     }
 
@@ -21,9 +20,6 @@ trait ScoreTrait{
             ],
             'description' => [
                 'required' => 'O campo descrição deve ser preenchido'
-            ],
-            'color' => [
-                'required' => 'O campo cor da pontuação deve ser preenchido'
             ]
         ];
     }
